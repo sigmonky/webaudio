@@ -1,0 +1,47 @@
+
+<!doctype html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <title>Detuning Example | Web Audio API</title>
+
+    <link rel="stylesheet" href="../static/style.css" type="text/css" media="screen" />
+  </head>
+
+  <body>
+
+    <div id="container">
+
+      <div id="header">
+        <h1><a href="/">Web Audio API</a></h1>
+      </div>
+
+
+     
+      <div id="content">
+        <div class="post">
+          <h2>Detuning Example</h2>
+          <p>
+          <p>Illustrating the API's Pitch Shifting Capabilities.</p>
+
+          </p>
+          <p>
+          <p><button style="display: block">Play</button></p>
+
+          <script src="../static/js/shared.js"></script>
+          <script src="detune-sample.js"></script>
+          <script>
+            var sample = new DetuneSample();
+            var playing = false;
+            document.querySelector('button').addEventListener('click', function() {
+              sample.play();
+            });
+          </script>
+
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
