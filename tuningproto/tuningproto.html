@@ -26,6 +26,8 @@
 
           </p>
           <p>
+          <p>ratio: <input type="text" id="numerator" size="3">/<input type="text" id="denominator" size="3"></p>
+
           <p><button style="display: block">Play</button></p>
 
           <script src="../static/js/shared.js"></script>
@@ -34,7 +36,11 @@
             var sample = new DetuneSample();
             var playing = false;
             document.querySelector('button').addEventListener('click', function() {
-              sample.play();
+
+              var numerator = Number(document.querySelector("#numerator").value);
+              var denominator = Number(document.querySelector("#denominator").value);
+              console.log(numerator/denominator);
+              sample.play(numerator/denominator);
             });
           </script>
 

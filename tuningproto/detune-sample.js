@@ -24,7 +24,7 @@ var DetuneSample = function() {
 
 
 
-DetuneSample.prototype.play = function() {
+DetuneSample.prototype.play = function(ratio) {
   // We'll start playing the rhythm 100 milliseconds from "now"
   var startTime = context.currentTime + 0.100;
   var tempo = 80; // BPM (beats per minute)
@@ -36,7 +36,7 @@ DetuneSample.prototype.play = function() {
     // Play the bass (kick) drum on beats 1, 5
     playSound(this["p0"], time, 0);
     //playSound(this.referencePitch, time + 4 * eighthNoteTime, .19550008653874);
-    var ratio = 16/15;
+    //var ratio = 16/15;
     var cents = 1200*Math.log(ratio)/Math.log(2);
     
     var refTone = cents/100;
