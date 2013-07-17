@@ -1,0 +1,51 @@
+
+html, body {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+canvas {
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+ul.toolbar {
+    color: white;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    font-size: 2em;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+}
+
+ul.toolbar li {
+    display: inline-block;
+}
+
+ul.toolbar li a {
+    display: block;
+    margin: 0 .5em;
+    background-color: #333333;
+    padding: 1em;
+}
+
+ul.toolbar li a.selected {
+    background-color: green;
+}
