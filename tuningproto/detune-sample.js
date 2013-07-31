@@ -18,7 +18,8 @@
 var DetuneSample = function() {
   loadSounds(this,{
     p0: 'middle-c.mp3',
-    p100:'middle-cs.mp3'
+    p100:'middle-cs.mp3',
+    p200:'middle-d.mp3'
   }); 
 };
 
@@ -36,7 +37,7 @@ DetuneSample.prototype.play = function() {
     // Play the bass (kick) drum on beats 1, 5
     playSound(this["p0"], time, 0);
     //playSound(this.referencePitch, time + 4 * eighthNoteTime, .19550008653874);
-    var ratio = 16/15;
+    var ratio = 12/11;
     var cents = 1200*Math.log(ratio)/Math.log(2);
     
     var refTone = cents/100;
