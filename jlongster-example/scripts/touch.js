@@ -320,7 +320,7 @@ function init() {
     particleImg.onload = function() {
         heartbeat();
     };
-    particleImg.src = 'particle.png';
+    particleImg.src = 'images/particle.png';
 
     if('webkitAudioContext' in window) {
         audioCtx = new webkitAudioContext();
@@ -331,7 +331,7 @@ function init() {
         }
 
         var request = new XMLHttpRequest();
-        request.open('GET', 'sound.mp3', true);
+        request.open('GET', 'sounds/sound.mp3', true);
         request.responseType = 'arraybuffer';
         request.addEventListener('load', bufferSound, false);
         request.send();

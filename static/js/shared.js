@@ -31,7 +31,7 @@ function playSound(buffer, time,detuning) {
   source.playbackRate.value = detuningValue;
   //source.detune.value = detuning;
   source.connect(context.destination);
-  source.start(time);
+  source.noteOn(time);
 }
 
 function loadSounds(obj, soundMap, callback) {

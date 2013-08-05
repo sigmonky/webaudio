@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HTML5 Piano</title>
+  
+	<meta name="rating" content="General" />
+	<meta name="author" content="Mihail Ilinov - more at http://mihail.ilinov.eu/"/>
+	<meta name="owner" content="Mihail Ilinov" />
+	<meta name="copyright" content="Mihail Ilinov" />
+	<meta name="cache-control" content="no-cache" />
+	
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="robots" content="index,follow" />
+	<meta name="revisit-after" content="1 days" />
+	<meta name="msnbot" content="index,follow" />
+	<meta name="googlebot" content="revisit-after 1 day" />
+	<meta name="area" content="Web HTML5 Experimental Piano Audio">
+	
+	<meta name="allow-search" content="yes">
+	<meta name="subject" content="HTML5 Piano">
+	<meta name="abstract" content="HTML5 Piano">
+	
+	<meta name="country" content="Bulgaria">
+	<meta name="creation date" content="February 2011"/>
+	<meta name="catalogue" content="Mihail Ilinov pages">
+	<meta name="description" content="HTML5 Piano is free web application developed with HTML5, CSS3 and JavaScript. HTML5 Piano is experimental project with one main goal - fun of playing piano on the web and testing the browsers performance. HTML5 Piano is free to use and fork. " />
+		
+	<meta name="keywords" content="HTML5 Piano, html piano, css3 piano, html css3 piano, web piano, free web piano, free piano, javascript piano, audio tag, html audio, jquery piano">
+  
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  
+  <script src="https://www.google.com/jsapi?key=ABQIAAAAM5WRXPMrqYvX6b4Xb7EZpxSeEWdgYc2hJ2roZCm3pKElCbTU5BSm-LvChjUku9yw6i8tI0Srj_P91w" type="text/javascript"></script>
+  <script type="text/javascript">
+  	google.load("jquery", "1.5.0");
+	</script>
+  <script src="js/jquery.hotkeys.js"></script>
+  <script src="js/keyObjects.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+	<!--[if IE]>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <style>
+   /* 
+    CSS rules to use for styling the overlay:
+      .chromeFrameOverlayContent
+      .chromeFrameOverlayContent iframe
+      .chromeFrameOverlayCloseBar
+      .chromeFrameOverlayUnderlay
+   */
+  </style> 
+  <script>
+   // You may want to place these lines inside an onload handler
+   CFInstall.check({
+     mode: "overlay",
+     destination: "http://www.waikiki.com"
+   });
+  </script>
+  <![endif]-->
+	<nav class="left">
+		<h1>HTML5 Piano</h1>
+		<span id="toggleKeyNames">Toggle piano key names On/Off</span>
+		<span id="toggleKeyboardKeysNames">Toggle keyboard key names On/Off</span>
+	</nav>
+	<nav class="right">
+	<a id="Octaves" style="float: right;">Octaves</a><br />
+	<a id="switchLight" style="float: right;">Switch the light</a>
+	</nav>
+	<div id="piano">
+		<div id="pianoBody">
+			<div id="littleRedLine"></div>
+			<div id="o1" class="octave">
+				<div id="1A" class="key white"><div class="keyname">A</div><div class="kbkeyname">Z</div></div>
+				<div id="1B" class="key white"><div class="keyname">B</div><div class="kbkeyname">X</div></div>
+				<div class="flats">
+					<div id="1As" class="key black"><div class="keyname">A# == Bb</div><div class="kbkeyname">S</div></div>
+				</div>
+			</div>
+			<div id="o2" class="octave">
+				<div id="2C" class="key white" ><div class="keyname">C</div><div class="kbkeyname">C</div><div class="oN">3</div></div>
+				<div id="2D" class="key white"><div class="keyname">D</div><div class="kbkeyname">V</div></div>
+				<div id="2E" class="key white"><div class="keyname">E</div><div class="kbkeyname">B</div></div>
+				<div id="2F" class="key white"><div class="keyname">F</div><div class="kbkeyname">N</div></div>
+				<div id="2G" class="key white"><div class="keyname">G</div><div class="kbkeyname">M</div></div>
+				<div id="2A" class="key white"><div class="keyname">A</div><div class="kbkeyname">,</div></div>
+				<div id="2B" class="key white"><div class="keyname">B</div><div class="kbkeyname">.</div></div>
+				<div class="flats">
+					<div id="2Cs" class="key black"><div class="keyname">C# == Db</div><div class="kbkeyname">F</div></div>
+					<div id="2Ds" class="key black"><div class="keyname">D# == Eb</div><div class="kbkeyname">G</div></div>
+					<div id="2Fs" class="key black"><div class="keyname">F# == Gb</div><div class="kbkeyname">J</div></div>
+					<div id="2Gs" class="key black"><div class="keyname">G# == Ab</div><div class="kbkeyname">K</div></div>
+					<div id="2As" class="key black"><div class="keyname">A# == Bb</div><div class="kbkeyname">L</div></div>
+				</div>
+			</div>
+			<div id="o3" class="octave">
+				<div id="3C" class="key white" ><div class="keyname">C</div><div class="kbkeyname">E</div><div class="oN">4</div></div>
+				<div id="3D" class="key white"><div class="keyname">D</div><div class="kbkeyname">R</div></div>
+				<div id="3E" class="key white"><div class="keyname">E</div><div class="kbkeyname">T</div></div>
+				<div id="3F" class="key white"><div class="keyname">F</div><div class="kbkeyname">Y</div></div>
+				<div id="3G" class="key white"><div class="keyname">G</div><div class="kbkeyname">U</div></div>
+				<div id="3A" class="key white"><div class="keyname">A</div><div class="kbkeyname">I</div></div>
+				<div id="3B" class="key white"><div class="keyname">B</div><div class="kbkeyname">O</div></div>
+				<div class="flats">
+					<div id="3Cs" class="key black"><div class="keyname">C# == Db</div><div class="kbkeyname">4</div></div>
+					<div id="3Ds" class="key black"><div class="keyname">D# == Eb</div><div class="kbkeyname">5</div></div>
+					<div id="3Fs" class="key black"><div class="keyname">F# == Gb</div><div class="kbkeyname">7</div></div>
+					<div id="3Gs" class="key black"><div class="keyname">G# == Ab</div><div class="kbkeyname">8</div></div>
+					<div id="3As" class="key black"><div class="keyname">A# == Bb</div><div class="kbkeyname">9</div></div>
+				</div>
+			</div>
+			<div id="o4" class="octave">
+				<div id="4C" class="key white" ><div class="keyname">C</div><div class="kbkeyname">P</div><div class="oN">5</div></div>
+			</div>
+		</div>
+	</div>
+	<!-- AudioFiles Section http://78.90.42.244/HTMLPiano/tones/grand-piano/ -->
+	<div id="pianoStrings">
+		<audio id="tone-1A" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/1A.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/1A.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-1As" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/1As.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/1As.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-1B" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/1B.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/1B.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-2C" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/2C.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/2C.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-2Cs" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/2Cs.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/2Cs.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-2D" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/2D.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/2D.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-2Ds" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/2Ds.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/2Ds.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-2E" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/2E.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/2E.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-2F" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/2F.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/2F.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-2Fs" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/2Fs.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/2Fs.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-2G" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/2G.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/2G.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-2Gs" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/2Gs.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/2Gs.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-2A" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/2A.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/2A.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-2As" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/2As.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/2As.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-2B" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/2B.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/2B.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3C" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3C.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3C.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3C" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3C.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3C.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3Cs" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3Cs.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3Cs.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3D" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3D.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3D.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3Ds" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3Ds.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3Ds.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3E" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3E.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3E.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3F" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3F.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3F.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3Fs" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3Fs.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3Fs.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3G" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3G.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3G.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3Gs" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3Gs.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3Gs.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3A" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3A.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3A.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3As" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3As.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3As.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-3B" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/3B.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/3B.mp3" type="audio/mpeg"></source>
+		</audio>
+		<audio id="tone-4C" preload="auto" controls>
+			<source src="http://h5p.hit.bg/grand-piano/4C.ogg" type="audio/ogg"></source>
+			<source src="http://h5p.hit.bg/grand-piano/4C.mp3" type="audio/mpeg"></source>
+		</audio>
+	</div>
+
+<footer>
+<div class="bunchOfLinks">
+<h5>Bunch of links</h5>
+<a href="http://www.html5piano.ilinov.eu/"  title="HTML5 Piano made with html5, css3, javascript and a lot of love">HTML5 Piano - you are here, no need to click :)</a><br />
+<a href="http://www.html5piano.ilinov.eu/full/" title="HTML5 Piano - full 88 keys version, the real simulation">HTML5 Piano FULL 88 keys version</a><br />
+<a href="http://www.html5piano.ilinov.eu/faq/"  style="font-size: 14px;" title="What this piano can and what can't, and what will probably could do...">FAQ</a><br />
+<a href="http://blog.mihail.ilinov.eu/html5-piano/" target="_blank" title="Your comments, ideas, advices or anything else">Want to talk about it?</a><br />
+<a href="http://www.html5piano.ilinov.eu/how-is-made/" title="HTML5 Piano made with html5, css3, javascript and a lot of love">How is made?</a><br />
+<a href="http://www.html5piano.ilinov.eu/features/"  title="What this piano can and what can't, and what will probably could do...">Features</a><br />
+</div>
+<div id="socialBox">
+<h5>If you like, it share it. It's free!</h5>
+<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like-box href="http://www.facebook.com/#!/pages/Html5-Piano/153457798042966" width="292" show_faces="false" stream="false" header="false"></fb:like-box>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Html5Piano">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</div>
+<div class="signiture">
+<a href="http://www.mihail.ilinov.eu" target="_blank" title="Just talk to me About anything ...">made by Mihail Ilinov - Mike</a>
+<br/>
+powered by <a href="http://www.hit.bg" target="_blank" title="Hit.bg">hit.bg</a>
+</div>
+</footer>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: 'your app id', status: true, cookie: true,
+             xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21333207-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+/* Make HTML 5 elements display block-level for consistent styling */
+header, nav, article, footer, address {
+	display: block;
+}
+
+a {color: #000; text-decoration: none; font-weight: bold;}
+a:hover {color: #9C0413;}
+
+article {
+  width: 940px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  font: 16px;
+	font-family: Tahoma;
+  background: none repeat scroll 0 0 #EDEDEC;
+  padding: 20px;
+	-moz-border-radius: 15px;
+	border-radius: 15px; 
+}
+
+p {
+  font-family: Tahoma;
+  font-size: 14px;
+  padding: 15px 0px 10px 0px;
+}
+
+
+footer {
+    font-family: Tahoma;
+    font-size: 11px;
+    padding: 10px 0;
+    position: relative;
+	  width: 940px;
+	  margin-top: 10px;
+	  margin-left: auto;
+	  margin-right: auto;
+}
+
+footer nav {
+	font-weight: normal;
+	float: left;
+}
+
+.signiture {
+    float: right;
+}

@@ -35,11 +35,21 @@
           <script>
             var sample = new DetuneSample();
             var playing = false;
-            document.querySelector('button').addEventListener('click', function() {
 
+            var touchstart = 'mousedown';
+            var touchmove = 'mousemove';
+            var touchend = 'mouseup';
+
+            if('ontouchstart' in window) {
+                alert("touchstart in window")
+                touchstart = 'touchstart';
+                touchmove = 'touchmove';
+                touchend = 'touchend';
+            }
+
+            document.querySelector('button').addEventListener(touchend, function() {
               var numerator = Number(document.querySelector("#numerator").value);
               var denominator = Number(document.querySelector("#denominator").value);
-              console.log(numerator/denominator);
               sample.play(numerator/denominator);
             });
           </script>

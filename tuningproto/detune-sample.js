@@ -50,6 +50,7 @@ DetuneSample.prototype.play = function(ratio) {
       detuning = (refTone - cents ) * -1;
     }
     var refKey = "p" + refTone;
+
     console.log("ref tone " + refTone +  " detuned by " + detuning);
     playSound(this[refKey], time,detuning);
 
