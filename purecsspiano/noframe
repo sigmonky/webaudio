@@ -832,8 +832,8 @@ else {
 		<li><div class="anchor"></div></li>
 		<li><div class="anchor"></div><span></span></li>
 		<li><div class="anchor"></div><span></span></li>
-		<li><div class="anchor"></div><span></span></li>
-		<li><div class="anchor"></div></li>
+		<li><div class="anchor"></div><span></span></li>-->
+		<li><div class="anchor"><span></span></div></li>
 	</ul>
 </div>
 
