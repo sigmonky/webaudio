@@ -19,7 +19,8 @@ var DetuneSample = function() {
   loadSounds(this,{
     p0: 'middle-c.mp3',
     p100:'middle-cs.mp3',
-    p200:'middle-d.mp3'
+    p200:'middle-d.mp3',
+    p300:'middle-ds.mp3'
   }); 
 };
 

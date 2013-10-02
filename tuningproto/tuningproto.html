@@ -6,6 +6,56 @@
     <title>Detuning Example | Web Audio API</title>
 
     <link rel="stylesheet" href="../static/style.css" type="text/css" media="screen" />
+
+    <style>
+
+            #keybox {
+                /*width:910px;*/ 
+                margin-left: -7px; 
+                text-align: center;
+            }
+
+            #blackkeys { 
+                position: absolute; 
+                z-index: 2; padding-left: 10px; 
+                margin-left: 112px;
+            }
+
+            .key { 
+                display:inline-block; 
+            }
+
+            .black { 
+                background: black; 
+                width: 40px; height: 
+                150px; margin: 
+                0px 11px; 
+                border-bottom-right-radius: 5px; 
+                border-bottom-left-radius: 5px; 
+            }
+
+            .spacer { 
+                display:inline-block; width: 62px; 
+                height: 150px; 
+            }
+
+            .white { 
+                background: white; 
+                width: 60px; height: 
+                250px; border: 
+                1px solid black; 
+                border-bottom-right-radius: 5px; 
+                border-bottom-left-radius: 5px; 
+            }
+
+            .pressed { 
+                background: gray; 
+            }
+
+            select { 
+                width: 80px; 
+            }
+      </style>
   </head>
 
   <body>
@@ -30,6 +80,38 @@
 
           <p><button style="display: block">Play</button></p>
 
+          <div id="keybox">
+            <div id="blackkeys">
+                <span id="k61" class="black key"></span>
+                <span id="k63" class="black key">
+                </span><span class="spacer"></span>
+                <span id="k66" class="black key"></span>
+                <span id="k68" class="black key"></span>
+                <span id="k70" class="black key"></span>
+                <span class="spacer"></span>
+                <span id="k73" class="black key"></span>
+                <span id="k75" class="black key"></span>
+                <span class="spacer"></span>
+                <span id="k78" class="black key"></span>
+                <span id="k80" class="black key"></span>
+                <span id="k82" class="black key"></span>
+            </div>
+            <span id="k60" class="white key"></span>
+            <span id="k62" class="white key"></span>
+            <span id="k64" class="white key"></span>
+            <span id="k65" class="white key"></span>
+            <span id="k67" class="white key"></span>
+            <span id="k69" class="white key"></span>
+            <span id="k71" class="white key"></span>
+            <span id="k72" class="white key"></span>
+            <span id="k74" class="white key"></span>
+            <span id="k76" class="white key"></span>
+            <span id="k77" class="white key"></span>
+            <span id="k79" class="white key"></span>
+            <span id="k81" class="white key"></span>
+            <span id="k83" class="white key"></span>
+        </div>
+
           <script src="../static/js/shared.js"></script>
           <script src="detune-sample.js"></script>
           <script>
@@ -41,10 +123,30 @@
             var touchend = 'mouseup';
 
             if('ontouchstart' in window) {
-                alert("touchstart in window")
                 touchstart = 'touchstart';
                 touchmove = 'touchmove';
                 touchend = 'touchend';
+            }
+
+            function pointerDown(ev) {
+                var note = parseInt(ev.target.id.substring(1));
+                //if (note != NaN)
+                    //noteOn(note + 12 * (3 - currentOctave), 0.75);
+                    console.log( "mouse down: " + note );
+                ev.target.classList.add("pressed");
+                var numerator = Number(document.querySelector("#numerator").value);
+                var denominator = Number(document.querySelector("#denominator").value);
+                sample.play(numerator/denominator);
+                return false;
+            }
+
+            function pointerUp(ev) {
+                var note = parseInt(ev.target.id.substring(1));
+                //if (note != NaN)
+                    //noteOff(note + 12 * (3 - currentOctave));
+                console.log( "mouse up: " + note );
+                ev.target.classList.remove("pressed");
+                return false;
             }
 
             document.querySelector('button').addEventListener(touchend, function() {
@@ -52,6 +154,13 @@
               var denominator = Number(document.querySelector("#denominator").value);
               sample.play(numerator/denominator);
             });
+
+            var keys = document.querySelectorAll(".key");
+            for (var i = 0; i < keys.length; i++) {
+                console.log(keys[i].addEventListener);
+                keys[i].addEventListener(touchstart, pointerDown);
+                keys[i].addEventListener(touchend, pointerUp);
+            }
           </script>
 
           </p>
